@@ -1,0 +1,66 @@
+section {
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.brainTable {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+.item {
+  display: table-cell;
+  vertical-align: top;
+}
+.item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.videoDisplay {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.center {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+    align-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+
+.lateral {
+  width: 15%;
+  margin: 0;
+  padding: 0;
+}
+
+.middle {
+  width: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.arrowBtn {
+    left: 50%;
+    /*margin: -64px 0 0 -64px;*/
+    position: absolute;
+    top: 80%;
+    z-index: 1;
+}
+
+.arrowBtn img {
+  height: 50px;
+  width: 50px;
+}

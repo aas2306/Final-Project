@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<!-- video lesson -->
+
+<div class = "container videoDisplay">
+			<div class="col-xs-12 videoDisplay">
+				<div class="embed-responsive embed-responsive-16by9">
+					<video class="embed-responsive-item video" src="../Episode1.mp4" controls autoplay id="video1" type="video/mp4">
+					</video>
+				</div>
+				<a href="#game" class="arrowBtn hide"><img src="http://www.gravityshows.com/images/abajo.png" alt=""></a>
+	</div>
+</div>
+
+<!-- game -->
+<section class="hide" id="game">
+<div class="container">
+	<!-- brain -->
+	<div class="row"> <!-- row brain -->
+
+	<div class="lateral col-xs-3">
+	</div>
+
+
+
+		<div class="middle col-xs-6 brain">
+				<div class="container-fluid center"> <!-- brain container -->
+		<div class="row brainTable">
+		<div class="item">
+			<img src="./brainimages/c1s0.jpg" data-order="1">
+		</div>
+		<div class="item">
+			<img src="./brainimages/static1.jpg">
+		</div>
+		<div class="item">
+			<img src="./brainimages/c2s0.jpg" data-order="2">
+		</div>
+		<div class="item">
+			<img src="./brainimages/static2.jpg">
+		</div>
+		<div class="item">
+			<img src="./brainimages/c3s0.jpg" data-order="3">
+		</div>
+		</div>
+
+		<div class="row brainTable">
+		<div class="item">
+			<img src="./brainimages/static3.jpg">
+		</div>
+		<div class="item">
+			<img src="./brainimages/c4s0.jpg" data-order="4">
+		</div>
+		<div class="item">
+			<img src="./brainimages/static4.jpg">
+		</div>
+		<div class="item">
+			<img src="./brainimages/c5s0.jpg" data-order="5">
+		</div>
+		<div class="item">
+			<img src="./brainimages/static5.jpg">
+		</div>
+		<div class="item">
+			<img src="./brainimages/c6s0.jpg" data-order="6">
+		</div>
+		<div class="item">
+			<img src="./brainimages/static6.jpg">
+		</div>
+		</div>
+</div> 	<!-- end container fluid -->
+</div> 	<!-- end column 6 -->
+
+
+	<div class="lateral col-xs-3">
+		<img class="img-responsive" src="http://www.placehold.it/150x150" alt="">
+	</div>
+
+
+</div> 	<!-- end row brain and columns-->
+
+
+<!-- instructions & start game button -->
+<div  class = "row">
+<div>
+	<p id="instructions">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus similique iste, illo necessitatibus soluta quam maiores quos sint unde provident sit totam ipsam ex aut qui asperiores nostrum nisi quisquam.</p>
+	<a class="btn btn-default" href="#gamequestions" role="button" id="startGameBtn">Start Game!</a>
+</div>
+
+	<!-- game questions -->
+<div id="gamequestions" class="hide">
+	<div class="templateInput">
+		<!-- game question will go here -->
+	</div>
+	<form>
+		<input class="userAnswer" type="number">
+	</form>
+	<button class="skipBtn">SKIP</button>
+	<button class="checkAnswerBtn">CHECK ANSWER</button>
+	<button class="hide" id="sameLevelBtn">Same Level Question</button>
+	<button class="hide" id="harderLevelBtn">Harder Level Question</button>
+	<button class="hide" id="tryAgainBtn">TRY AGAIN</button>
+	<button class="hide" id="endGameBtn">End Game</button>
+	<button class="hide" id="finalChallengeBtn">Final Challenge!</button>
+</div>
+
+<template id="gameTMPL">
+	<p class="questiontext"></p>
+</template>
+
+
+</div>
+</div>
+</section>
+
+
+	<script src="main.js"></script>
+</body>
+</html>
