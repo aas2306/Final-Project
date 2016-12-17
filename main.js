@@ -16,103 +16,101 @@ var game = document.getElementById('game');
 
 var gameScore = 0;
 
+var questionPicSrc = document.querySelector('#questionpic').src;
+
+
+
+
 function updateScore(increment) {
 	gameScore = gameScore + increment;
 	document.getElementById('gameScore').innerText = gameScore;
 }
 
+
 var questions = [
 	{
-		questiontext: "lorem ipsum 1+1 = ",
-		answer: "2",
-		help: "This is the help."
-	},
-	{
-		questiontext: "lorem ipsum 2+2 = ",
-		answer: "4",
-		help: "This is the help."
-	},
-	{
-		questiontext: "lorem ipsum 3+3 = ",
-		answer: "6",
-		help: "This is the help."
-	},
-	{
-		questiontext: "lorem ipsum 4+4 = ",
-		answer: "8",
-		help: "This is the help."
-	},
-	{
-		questiontext: "lorem ipsum 5+5 = ",
+		questionpic: "./media/questionpics/q1.png",
 		answer: "10",
-		help: "This is the help."
+		help: "Make sure to count ALL the tally marks!"
 	},
 	{
-		questiontext: "lorem ipsum 6+6 = ",
+		questionpic: "./media/questionpics/q2.png",
+		answer: "4",
+		help: "What can you add to 1 to make a total of 5?"
+	},
+	{
+		questionpic: "./media/questionpics/q3.png",
 		answer: "12",
-		help: "This is the help."
+		help: "Count the stars carefully, you can do it!"
 	},
 	{
-		questiontext: "lorem ipsum 7+7 = ",
-		answer: "14",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q4.png",
+		answer: "17",
+		help: "Make sure to count ALL the tally marks!"
 	},
 	{
-		questiontext: "lorem ipsum 8+8 = ",
-		answer: "16",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q5.png",
+		answer: "6",
+		help: "Are you missing any sides?"
 	},
 	{
-		questiontext: "lorem ipsum 9+9 = ",
+		questionpic: "./media/questionpics/q6.png",
+		answer: "6",
+		help: "Count the stars carefully, you can do it!"
+	},
+	{
+		questionpic: "./media/questionpics/q7.png",
+		answer: "12",
+		help: "Take it one step at a time!"
+	},
+	{
+		questionpic: "./media/questionpics/q8.png",
+		answer: "10",
+		help: "Can you figure out what the watermelons are equal to first?"
+	},
+	{
+		questionpic: "./media/questionpics/q9.png",
 		answer: "18",
-		help: "This is the help."
+		help: "What's the pattern before you get to the last space?"
 	},
 	{
-		questiontext: "lorem ipsum 10+10 = ",
-		answer: "20",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q10.png",
+		answer: "13",
+		help: "Count carefully, don't give up!"
 	},
 	{
-		questiontext: "lorem ipsum 11+11 = ",
-		answer: "22",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q11.png",
+		answer: "8",
+		help: "Are you missing any sides? Count carefully!"
 	},
 	{
-		questiontext: "lorem ipsum 12+12 = ",
-		answer: "24",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q12.png",
+		answer: "23",
+		help: "Count carefully, don't give up!"
 	},
 	{
-		questiontext: "lorem ipsum 13+13 = ",
-		answer: "26",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q13.png",
+		answer: "40",
+		help: "What's the pattern before you get to the last space?"
 	},
 	{
-		questiontext: "lorem ipsum 14+14 = ",
-		answer: "28",
-		help: "This is the help."
+		questionpic: "./media/questionpics/q14.png",
+		answer: "17",
+		help: "Can you figure out what each fruit is equal to?"
 	},
 	{
-		questiontext: "Open-ended question"
+		questionpic: "./media/questionpics/q15.png"
 	}
 ];
 
-// var srcMap = {
-// 	C1: ["./media/brainimages/c1s0.jpg", "./media/brainimages/c1s1.jpg", "./media/brainimages/c1s2.jpg", "./media/brainimages/c1s3.jpg"],
-// 	C2: ["./media/brainimages/c2s0.jpg", "./media/brainimages/c2s1.jpg", "./media/brainimages/c2s2.jpg", "./media/brainimages/c2s3.jpg"],
-// 	C3: ["./media/brainimages/c3s0.jpg", "./media/brainimages/c3s1.jpg", "./media/brainimages/c3s2.jpg", "./media/brainimages/c3s3.jpg"],
-// 	C4: ["./media/brainimages/c4s0.jpg", "./media/brainimages/c4s1.jpg", "./media/brainimages/c4s2.jpg", "./media/brainimages/c4s3.jpg"],
-// 	C5: ["./media/brainimages/c5s0.jpg", "./media/brainimages/c5s1.jpg", "./media/brainimages/c5s2.jpg", "./media/brainimages/c5s3.jpg"],
-// 	C6: ["./media/brainimages/c6s0.jpg", "./media/brainimages/c6s1.jpg", "./media/brainimages/c6s2.jpg", "./media/brainimages/c6s3.jpg"]
-// };
 
 var srcMap = [
-	["./media/brainimages/c1s0.jpg", "./media/brainimages/c1s1.jpg", "./media/brainimages/c1s2.jpg", "./media/brainimages/c1s3.jpg"],
-	["./media/brainimages/c2s0.jpg", "./media/brainimages/c2s1.jpg", "./media/brainimages/c2s2.jpg", "./media/brainimages/c2s3.jpg"],
-	["./media/brainimages/c3s0.jpg", "./media/brainimages/c3s1.jpg", "./media/brainimages/c3s2.jpg", "./media/brainimages/c3s3.jpg"],
-	["./media/brainimages/c4s0.jpg", "./media/brainimages/c4s1.jpg", "./media/brainimages/c4s2.jpg", "./media/brainimages/c4s3.jpg"],
-	["./media/brainimages/c5s0.jpg", "./media/brainimages/c5s1.jpg", "./media/brainimages/c5s2.jpg", "./media/brainimages/c5s3.jpg"],
-	["./media/brainimages/c6s0.jpg", "./media/brainimages/c6s1.jpg", "./media/brainimages/c6s2.jpg", "./media/brainimages/c6s3.jpg"]
+	["./media/brainimages/c1s0.png", "./media/brainimages/c1s1.png", "./media/brainimages/c1s2.png", "./media/brainimages/c1s3.png"],
+	["./media/brainimages/c2s0.png", "./media/brainimages/c2s1.png", "./media/brainimages/c2s2.png", "./media/brainimages/c2s3.png"],
+	["./media/brainimages/c3s0.png", "./media/brainimages/c3s1.png", "./media/brainimages/c3s2.png", "./media/brainimages/c3s3.png"],
+	["./media/brainimages/c4s0.png", "./media/brainimages/c4s1.png", "./media/brainimages/c4s2.png", "./media/brainimages/c4s3.png"],
+	["./media/brainimages/c5s0.png", "./media/brainimages/c5s1.png", "./media/brainimages/c5s2.png", "./media/brainimages/c5s3.png"],
+	["./media/brainimages/c6s0.png", "./media/brainimages/c6s1.png", "./media/brainimages/c6s2.png", "./media/brainimages/c6s3.png"]
 ];
 // state rep. connection type 0,1,2
 // 0 = no connection
@@ -131,6 +129,7 @@ function changeImg(imgEl, arrayNum, state){
 }
 
 function showArrowBtn() {
+	vid.pause();
 	document.querySelector('.arrowBtn').classList.remove('hide');
 }
 
@@ -140,88 +139,86 @@ function showInstructions(){
 }
 
 function startGame(){
-	document.getElementById('instructions').classList.add('hide');
+	document.querySelector('#instructions').classList.add('hide');
 	document.getElementById('startGameBtn').classList.add('hide');
 	document.getElementById('gamequestions').classList.remove('hide');
-	displayQuestion(questions, questionCounter, "questiontext");
+	displayQuestion(questions, questionCounter, "questionpic");
 }
 
-// vid.addEventListener("ended", showArrowBtn);
-showArrowBtn();
+vid.addEventListener("ended", showArrowBtn);
 document.querySelector('.arrowBtn').addEventListener('click', showInstructions);
 startGameBtn.addEventListener('click', startGame);
 
 
 
-
-function displayQuestion(questionsArray, questionCount, questiontext) {
-	template.content.querySelector('.questiontext').innerHTML = questionsArray[questionCount][questiontext];
-	var clone = document.importNode(template.content, true);
-	document.querySelector('.templateInput').appendChild(clone);
+function displayQuestion(questionsArray, questionCount, questionpic) {
+	questionPicSrc = questionsArray[questionCount][questionpic];
+	document.querySelector('#questionpic').src = questionPicSrc;
+	// template.content.querySelector('.questionpic').innerHTML = questionsArray[questionCount][questionpic];
+	// var clone = document.importNode(template.content, true);
+	// document.querySelector('.templateInput').appendChild(clone);
 	dataOrderCounter = dataOrderCounter + 1;
 }
 
 function displayHelp(questionsArray, questionCount) {
-	console.log("TEST: ", questionsArray[questionCount]['help']);
-	console.log(questionsArray, questionsArray[questionCount], questionsArray[questionCount]['help']);
-	template.content.querySelector('.questionhelp').innerHTML = questionsArray[questionCount]['help'];
-	var clone = document.importNode(template.content, true);
-	document.querySelector('.templateInput').appendChild(clone);
+	// console.log("TEST: ", questionsArray[questionCount]['help']);
+	// console.log(questionsArray, questionsArray[questionCount], questionsArray[questionCount]['help']);
+	// template.content.querySelector('.questionhelp').innerHTML = questionsArray[questionCount].help;
+	document.querySelector('.questionhelp').innerHTML =  questionsArray[questionCount].help;
+	// var x = document.importNode(template.content, true);
+	// document.querySelector('.templateInput').appendChild(x);
 }
 
-function hideQuestion() {
-	alert('hideQuestion');
-	document.querySelector('.userAnswer').value = "";
-	document.querySelector('.templateInput').innerHTML = "";
-	// document.querySelector('.templateInput').removeChild(document.querySelector('.questiontext'));
-}
-
+// function hideQuestion() {
+// 	alert('hideQuestion');
+// 	document.querySelector('.userAnswer').value = "";
+// 	document.querySelector('.templateInput').innerHTML = "";
+// 	// document.querySelector('.templateInput').removeChild(document.querySelector('.questionpic'));
+// }
 
 sameLevelBtn.addEventListener('click', function (){
 	userAnswerEl.disabled = false;
-	hideQuestion();
 	sameLevelBtn.classList.add('hide');
 	harderLevelBtn.classList.add('hide');
 	questionCounter = questionCounter + 1;
-	displayQuestion(questions, questionCounter, "questiontext");
+	document.querySelector('.userAnswer').value = "";
+	displayQuestion(questions, questionCounter, "questionpic");
 	skipBtn.classList.remove('hide');
 	checkAnswerBtn.classList.remove('hide');
 	changeImg(getImg(dataOrderCounter), srcMapCounter, 2);
 	srcMapCounter = srcMapCounter + 1;
-
 	updateScore(1);
 });
 
 harderLevelBtn.addEventListener('click', function (){
 	userAnswerEl.disabled = false;
-	hideQuestion();
 	sameLevelBtn.classList.add('hide');
 	harderLevelBtn.classList.add('hide');
 	questionCounter = questionCounter + 2;
-	displayQuestion(questions, questionCounter, "questiontext");
+	userAnswerEl.value = "";
+	displayQuestion(questions, questionCounter, "questionpic");
 	skipBtn.classList.remove('hide');
 	checkAnswerBtn.classList.remove('hide');
 	changeImg(getImg(dataOrderCounter), srcMapCounter, 3);
 	srcMapCounter = srcMapCounter + 1;
-
 	updateScore(2);
 });
 
 skipBtn.addEventListener('click', function (){
+	hideHelp();
+	userAnswerEl.value = "";
 	userAnswerEl.disabled = false;
 	if (dataOrderCounter < 6) {
-		hideQuestion();
 		sameLevelBtn.classList.add('hide');
 		harderLevelBtn.classList.add('hide');
 		tryAgainBtn.classList.add('hide');
 		questionCounter = questionCounter + 1;
-		displayQuestion(questions, questionCounter, "questiontext");
+		displayQuestion(questions, questionCounter, "questionpic");
 		skipBtn.classList.remove('hide');
 		checkAnswerBtn.classList.remove('hide');
 		changeImg(getImg(dataOrderCounter), srcMapCounter, 1);
 		srcMapCounter = srcMapCounter + 1;
 	} else {
-		hideQuestion();
 		document.querySelector('.userAnswer').classList.add('hide');
 		skipBtn.classList.add('hide');
 		checkAnswerBtn.classList.add('hide');
@@ -230,15 +227,17 @@ skipBtn.addEventListener('click', function (){
 	}
 });
 
+function hideHelp() {
+	document.querySelector('.questionhelp').innerText = "";
+}
+
 tryAgainBtn.addEventListener('click', function(){
 	userAnswerEl.disabled = false;
-	document.querySelector('.userAnswer').value = "";
+	userAnswerEl.value = "";
 	tryAgainBtn.classList.add('hide');
 	checkAnswerBtn.classList.remove('hide');
-
 	updateScore(3);
 });
-
 
 checkAnswerBtn.addEventListener('click', setUserAnswer);
 userAnswerEl.addEventListener('keydown', function(e) {
@@ -248,12 +247,13 @@ userAnswerEl.addEventListener('keydown', function(e) {
 });
 
 function setUserAnswer(){
-	userAnswer = document.querySelector('.userAnswer').value;
+	userAnswer = userAnswerEl.value;
 	checkAnswer(userAnswer, questionCounter);
 }
 
 // how can we make this flexible for all the questions?
 function checkAnswer(userAns, questionNumber) {
+	hideHelp();
 	var rightAnswer = questions[questionNumber].answer;
 	if (userAns === rightAnswer){
 		alert("You got the right answer!");
@@ -268,7 +268,7 @@ function checkAnswer(userAns, questionNumber) {
 		checkAnswerBtn.classList.add('hide');
 		userAnswerEl.disabled = true;
 		tryOrSkip();
-		displayHelp(questions, questionCounter, "questionhelp");
+		displayHelp(questions, questionCounter);
 	}
 }
 
@@ -298,14 +298,15 @@ function tryOrSkip() {
 }
 
 function endGame() {
-	alert("Game finished.");
+	alert("Game finished. Your score was: " + gameScore);
+	document.location.reload(true);
 }
 
 endGameBtn.addEventListener('click', endGame);
 
 finalChallengeBtn.addEventListener('click', function() {
 	finalChallengeBtn.classList.add('hide');
-	displayQuestion(questions, 14, "questiontext");
+	displayQuestion(questions, 14, "questionpic");
 	// something that ends game
 
 	updateScore(5);

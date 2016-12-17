@@ -5,6 +5,7 @@
 	<title>Demo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="./styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body>
 
@@ -13,7 +14,7 @@
 <div class = "container videoDisplay">
 			<div class="col-xs-12 videoDisplay">
 				<div class="embed-responsive embed-responsive-16by9">
-					<video class="embed-responsive-item video" src="./media/Episode1.mp4" controls id="video1" type="video/mp4">
+					<video class="embed-responsive-item video" src="./media/Episode1.mp4" controls autoplay id="video1" type="video/mp4">
 					</video>
 				</div>
 				<a href="#game" class="arrowBtn hide"><img src="http://www.gravityshows.com/images/abajo.png" alt=""></a>
@@ -23,6 +24,13 @@
 <!-- game -->
 <section class="hide" id="game">
 <div class="container">
+
+<div class="row">
+	<div  id="logo">
+		<img class="img-responsive" src="./media/logo.png" alt="">
+	</div>
+</div>
+
 	<!-- brain -->
 	<div class="row"> <!-- row brain -->
 
@@ -32,46 +40,49 @@
 
 
 		<div class="middle col-xs-6 brain">
-				<div class="container-fluid center"> <!-- brain container -->
+		<div class="container-fluid center"> <!-- brain container -->
+
+
+
 		<div class="row brainTable">
 		<div class="item">
-			<img src="./media/brainimages/c1s0.jpg" data-order="1">
+			<img src="./media/brainimages/c1s0.png" data-order="1">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/static1.jpg">
+			<img src="./media/brainimages/static1.png">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/c2s0.jpg" data-order="2">
+			<img src="./media/brainimages/c2s0.png" data-order="2">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/static2.jpg">
+			<img src="./media/brainimages/static2.png">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/c3s0.jpg" data-order="3">
+			<img src="./media/brainimages/c3s0.png" data-order="3">
 		</div>
 		</div>
 
 		<div class="row brainTable">
 		<div class="item">
-			<img src="./media/brainimages/static3.jpg">
+			<img src="./media/brainimages/static3.png">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/c4s0.jpg" data-order="4">
+			<img src="./media/brainimages/c4s0.png" data-order="4">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/static4.jpg">
+			<img src="./media/brainimages/static4.png">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/c5s0.jpg" data-order="5">
+			<img src="./media/brainimages/c5s0.png" data-order="5">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/static5.jpg">
+			<img src="./media/brainimages/static5.png">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/c6s0.jpg" data-order="6">
+			<img src="./media/brainimages/c6s0.png" data-order="6">
 		</div>
 		<div class="item">
-			<img src="./media/brainimages/static6.jpg">
+			<img src="./media/brainimages/static6.png">
 		</div>
 		</div>
 </div> 	<!-- end container fluid -->
@@ -80,7 +91,8 @@
 
 	<div class="lateral col-xs-3">
 		<!-- <img class="img-responsive" src="http://www.placehold.it/150x150" alt=""> -->
-		<div id="gameScore">0</div>
+		<p>Score: <span id="gameScore">0</span></p>
+
 	</div>
 
 
@@ -89,16 +101,24 @@
 
 <!-- instructions & start game button -->
 <div  class = "row">
-<div>
-	<p id="instructions">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus similique iste, illo necessitatibus soluta quam maiores quos sint unde provident sit totam ipsam ex aut qui asperiores nostrum nisi quisquam.</p>
-	<a class="btn btn-default" href="#gamequestions" role="button" id="startGameBtn">Start Game!</a>
+<div class="intro">
+	<p id="instructions">If you get an answer right or wrong: nothing happens! You can try a question again an unlimited number of times. <br>When you finish with a question, if you choose to move on to a question of the SAME LEVEL, you'll get one point, and your brain will get a REGULAR connection. If you choose to move on to a question of a HARDER LEVEL, you'll get two points, and your brain will get a SUPER connection. If you decide to SKIP a question, you'll get 0 points, and your brain will get a BLOCKED connection.
+<br>Good luck, and have fun!</p>
+	<!-- <a class="btn btn-default" href="#gamequestions" role="button" id="startGameBtn">Start Game!</a> -->
+	<button href="#gamequestions" id="startGameBtn">Start Game!</button>
 </div>
 
 	<!-- game questions -->
 <div id="gamequestions" class="hide">
-	<div class="templateInput">
+	<div class="">
 		<!-- game question will go here -->
+		<img id="questionpic" class="img-responsive" src="./media/questionpics/q1.png" alt="">
+		<div class="questionhelp">
+
+		</div>
+
 	</div>
+
 	<form>
 		<input class="userAnswer" type="number">
 	</form>
@@ -111,10 +131,6 @@
 	<button class="hide" id="finalChallengeBtn">Final Challenge!</button>
 </div>
 
-<template id="gameTMPL">
-	<p class="questiontext"></p>
-	<p class="questionhelp"></p>
-</template>
 
 
 </div>
