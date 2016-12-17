@@ -102,7 +102,7 @@
 <!-- instructions & start game button -->
 <div  class = "row">
 <div class="intro">
-	<p id="instructions">If you get an answer right or wrong: nothing happens! You can try a question again an unlimited number of times. <br>When you finish with a question, if you choose to move on to a question of the SAME LEVEL, you'll get one point, and your brain will get a REGULAR connection. If you choose to move on to a question of a HARDER LEVEL, you'll get two points, and your brain will get a SUPER connection. If you decide to SKIP a question, you'll get 0 points, and your brain will get a BLOCKED connection.
+	<p id="instructions">If you get an answer right or wrong: nothing happens! You can try a question again an unlimited number of times. <br>When you finish with a question, if you choose to move on to a question of the SAME LEVEL, you'll get 1 point, and your brain will get a REGULAR connection. <br>If you choose to move on to a question of a HARDER LEVEL, you'll get 2 points, and your brain will get a SUPER connection. <br> If you decide to SKIP a question, you'll get 0 points, and your brain will get a BLOCKED connection. <br>And every time you decide to try a question again if you get it wrong, you get 1 extra point!
 <br>Good luck, and have fun!</p>
 	<!-- <a class="btn btn-default" href="#gamequestions" role="button" id="startGameBtn">Start Game!</a> -->
 	<button href="#gamequestions" id="startGameBtn">Start Game!</button>
@@ -113,6 +113,18 @@
 	<div class="">
 		<!-- game question will go here -->
 		<img id="questionpic" class="img-responsive" src="./media/questionpics/q1.png" alt="">
+
+		<div>
+			<div class="correct hide">
+				<img src="./media/correct.png" alt="">
+				<p>That's the correct answer!</p>
+			</div>
+			<div class="incorrect hide">
+				<img src="./media/incorrect.png" alt="">
+				<p>That's not the correct answer.</p>
+			</div>
+		</div>
+		
 		<div class="questionhelp">
 
 		</div>
@@ -122,6 +134,9 @@
 	<form>
 		<input class="userAnswer" type="number">
 	</form>
+
+
+
 	<button class="skipBtn">SKIP</button>
 	<button class="checkAnswerBtn">CHECK ANSWER</button>
 	<button class="hide" id="sameLevelBtn">Same Level Question</button>

@@ -2,6 +2,7 @@ var vid = document.getElementById('video1');
 var dataOrderCounter = -1;
 var questionCounter = 0;
 var srcMapCounter = 0;
+var gameScore = 0;
 var checkAnswerBtn = document.querySelector('.checkAnswerBtn');
 var sameLevelBtn = document.querySelector('#sameLevelBtn');
 var harderLevelBtn = document.querySelector('#harderLevelBtn');
@@ -12,20 +13,10 @@ var finalChallengeBtn = document.querySelector('#finalChallengeBtn');
 var userAnswer;
 var template = document.getElementById('gameTMPL');
 var userAnswerEl = document.querySelector('.userAnswer');
+var correct = document.querySelector('.correct');
+var incorrect = document.querySelector('.incorrect');
 var game = document.getElementById('game');
-
-var gameScore = 0;
-
 var questionPicSrc = document.querySelector('#questionpic').src;
-
-
-
-
-function updateScore(increment) {
-	gameScore = gameScore + increment;
-	document.getElementById('gameScore').innerText = gameScore;
-}
-
 
 var questions = [
 	{
@@ -103,7 +94,6 @@ var questions = [
 	}
 ];
 
-
 var srcMap = [
 	["./media/brainimages/c1s0.png", "./media/brainimages/c1s1.png", "./media/brainimages/c1s2.png", "./media/brainimages/c1s3.png"],
 	["./media/brainimages/c2s0.png", "./media/brainimages/c2s1.png", "./media/brainimages/c2s2.png", "./media/brainimages/c2s3.png"],
@@ -145,38 +135,29 @@ function startGame(){
 	displayQuestion(questions, questionCounter, "questionpic");
 }
 
+function updateScore(increment) {
+	gameScore = gameScore + increment;
+	document.getElementById('gameScore').innerText = gameScore;
+}
+
 vid.addEventListener("ended", showArrowBtn);
 document.querySelector('.arrowBtn').addEventListener('click', showInstructions);
 startGameBtn.addEventListener('click', startGame);
 
 
-
 function displayQuestion(questionsArray, questionCount, questionpic) {
 	questionPicSrc = questionsArray[questionCount][questionpic];
 	document.querySelector('#questionpic').src = questionPicSrc;
-	// template.content.querySelector('.questionpic').innerHTML = questionsArray[questionCount][questionpic];
-	// var clone = document.importNode(template.content, true);
-	// document.querySelector('.templateInput').appendChild(clone);
 	dataOrderCounter = dataOrderCounter + 1;
 }
 
 function displayHelp(questionsArray, questionCount) {
-	// console.log("TEST: ", questionsArray[questionCount]['help']);
-	// console.log(questionsArray, questionsArray[questionCount], questionsArray[questionCount]['help']);
-	// template.content.querySelector('.questionhelp').innerHTML = questionsArray[questionCount].help;
 	document.querySelector('.questionhelp').innerHTML =  questionsArray[questionCount].help;
-	// var x = document.importNode(template.content, true);
-	// document.querySelector('.templateInput').appendChild(x);
 }
 
-// function hideQuestion() {
-// 	alert('hideQuestion');
-// 	document.querySelector('.userAnswer').value = "";
-// 	document.querySelector('.templateInput').innerHTML = "";
-// 	// document.querySelector('.templateInput').removeChild(document.querySelector('.questionpic'));
-// }
-
 sameLevelBtn.addEventListener('click', function (){
+	correct.classList.add('hide');
+	incorrect.classList.add('hide');
 	userAnswerEl.disabled = false;
 	sameLevelBtn.classList.add('hide');
 	harderLevelBtn.classList.add('hide');
@@ -191,7 +172,8 @@ sameLevelBtn.addEventListener('click', function (){
 });
 
 harderLevelBtn.addEventListener('click', function (){
-	userAnswerEl.disabled = false;
+	correct.classList.add('hide');
+	incorrect.classList.add('hide');userAnswerEl.disabled = false;
 	sameLevelBtn.classList.add('hide');
 	harderLevelBtn.classList.add('hide');
 	questionCounter = questionCounter + 2;
@@ -205,10 +187,12 @@ harderLevelBtn.addEventListener('click', function (){
 });
 
 skipBtn.addEventListener('click', function (){
-	hideHelp();
+	document.querySelector('.questionhelp').innerText = "";
 	userAnswerEl.value = "";
 	userAnswerEl.disabled = false;
 	if (dataOrderCounter < 6) {
+		correct.classList.add('hide');
+		incorrect.classList.add('hide');
 		sameLevelBtn.classList.add('hide');
 		harderLevelBtn.classList.add('hide');
 		tryAgainBtn.classList.add('hide');
@@ -228,16 +212,15 @@ skipBtn.addEventListener('click', function (){
 	}
 });
 
-function hideHelp() {
-	document.querySelector('.questionhelp').innerText = "";
-}
 
 tryAgainBtn.addEventListener('click', function(){
+	correct.classList.add('hide');
+	incorrect.classList.add('hide');
 	userAnswerEl.disabled = false;
 	userAnswerEl.value = "";
 	tryAgainBtn.classList.add('hide');
 	checkAnswerBtn.classList.remove('hide');
-	updateScore(3);
+	updateScore(2);
 });
 
 checkAnswerBtn.addEventListener('click', setUserAnswer);
@@ -254,18 +237,20 @@ function setUserAnswer(){
 
 // how can we make this flexible for all the questions?
 function checkAnswer(userAns, questionNumber) {
-	hideHelp();
+	document.querySelector('.questionhelp').innerText = "";
 	var rightAnswer = questions[questionNumber].answer;
 	if (userAns === rightAnswer){
-		alert("You got the right answer!");
+		// alert("You got the right answer!");
+		correct.classList.remove('hide');
 		checkAnswerBtn.classList.add('hide');
 		skipBtn.classList.add('hide');
 		furtherQuestions();
 		userAnswerEl.disabled = true;
 		// OPTIONS FOR TWO FURTHER QUESTIONS
 	} else {
-		alert("That's not the right answer!");
+		// alert("That's not the right answer!");
 		// TRY AGAIN OR SKIP
+		incorrect.classList.remove('hide');
 		checkAnswerBtn.classList.add('hide');
 		userAnswerEl.disabled = true;
 		tryOrSkip();
@@ -292,7 +277,6 @@ function tryOrSkip() {
 		tryAgainBtn.classList.remove('hide');
 		checkAnswerBtn.classList.add('hide');
 	} else {
-		// hideQuestion();
 		document.querySelector('#questionpic').src = "";
 		document.querySelector('.userAnswer').classList.add('hide');
 		endGameBtn.classList.remove('hide');
@@ -301,7 +285,7 @@ function tryOrSkip() {
 }
 
 function endGame() {
-	alert("Game finished! Your score was: " + gameScore);
+	alert("Game finished! Your score was " + gameScore + " brain points, and a stronger and smarter brain!");
 	document.location.reload(true);
 }
 
@@ -310,7 +294,5 @@ endGameBtn.addEventListener('click', endGame);
 finalChallengeBtn.addEventListener('click', function() {
 	finalChallengeBtn.classList.add('hide');
 	displayQuestion(questions, 14, "questionpic");
-	// something that ends game
-
 	updateScore(5);
 });
