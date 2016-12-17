@@ -219,6 +219,7 @@ skipBtn.addEventListener('click', function (){
 		changeImg(getImg(dataOrderCounter), srcMapCounter, 1);
 		srcMapCounter = srcMapCounter + 1;
 	} else {
+		document.querySelector('#questionpic').src = "";
 		document.querySelector('.userAnswer').classList.add('hide');
 		skipBtn.classList.add('hide');
 		checkAnswerBtn.classList.add('hide');
@@ -278,7 +279,8 @@ function furtherQuestions() {
 		sameLevelBtn.classList.remove('hide');
 		harderLevelBtn.classList.remove('hide');
 	} else {
-		hideQuestion();
+		// hideQuestion();
+		document.querySelector('#questionpic').src = "";
 		document.querySelector('.userAnswer').classList.add('hide');
 		endGameBtn.classList.remove('hide');
 		finalChallengeBtn.classList.remove('hide');
@@ -290,7 +292,8 @@ function tryOrSkip() {
 		tryAgainBtn.classList.remove('hide');
 		checkAnswerBtn.classList.add('hide');
 	} else {
-		hideQuestion();
+		// hideQuestion();
+		document.querySelector('#questionpic').src = "";
 		document.querySelector('.userAnswer').classList.add('hide');
 		endGameBtn.classList.remove('hide');
 		finalChallengeBtn.classList.remove('hide');
@@ -298,7 +301,7 @@ function tryOrSkip() {
 }
 
 function endGame() {
-	alert("Game finished. Your score was: " + gameScore);
+	alert("Game finished! Your score was: " + gameScore);
 	document.location.reload(true);
 }
 
