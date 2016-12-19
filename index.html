@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Demo</title>
+	<title>BRAINGYM</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="./styles.css">
+	<link rel="stylesheet" href="./css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body>
@@ -14,10 +14,11 @@
 <div class = "container videoDisplay">
 			<div class="col-xs-12 videoDisplay">
 				<div class="embed-responsive embed-responsive-16by9">
-					<video class="embed-responsive-item video" src="./media/Episode1.mp4" controls autoplay id="video1" type="video/mp4">
+					<video class="embed-responsive-item video" src="./media/finalvideo.mp4" controls autoplay id="video1" type="video/mp4">
 					</video>
 				</div>
 				<a href="#game" class="arrowBtn hide"><img src="http://www.gravityshows.com/images/abajo.png" alt=""></a>
+				<p>Original video courtesy of ClassDojo.</p>
 	</div>
 </div>
 
@@ -45,43 +46,43 @@
 
 
 		<div class="row brainTable">
-		<div class="item">
+		<div class="item rowOne shift1">
 			<img src="./media/brainimages/c1s0.png" data-order="1">
 		</div>
-		<div class="item">
+		<div class="item rowOne shift">
 			<img src="./media/brainimages/static1.png">
 		</div>
-		<div class="item">
+		<div class="item rowOne shift">
 			<img src="./media/brainimages/c2s0.png" data-order="2">
 		</div>
-		<div class="item">
+		<div class="item rowOne shift">
 			<img src="./media/brainimages/static2.png">
 		</div>
-		<div class="item">
+		<div class="item rowOne shift1">
 			<img src="./media/brainimages/c3s0.png" data-order="3">
 		</div>
 		</div>
 
 		<div class="row brainTable">
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/static3.png">
 		</div>
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/c4s0.png" data-order="4">
 		</div>
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/static4.png">
 		</div>
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/c5s0.png" data-order="5">
 		</div>
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/static5.png">
 		</div>
-		<div class="item">
+		<div class="item rowTwo">
 			<img src="./media/brainimages/c6s0.png" data-order="6">
 		</div>
-		<div class="item">
+		<div class="item rowTwo shift2">
 			<img src="./media/brainimages/static6.png">
 		</div>
 		</div>
@@ -102,9 +103,11 @@
 <!-- instructions & start game button -->
 <div  class = "row">
 <div class="intro">
-	<p id="instructions">If you get an answer right or wrong: nothing happens! You can try a question again an unlimited number of times. <br>When you finish with a question, if you choose to move on to a question of the SAME LEVEL, you'll get 1 point, and your brain will get a REGULAR connection. <br>If you choose to move on to a question of a HARDER LEVEL, you'll get 2 points, and your brain will get a SUPER connection. <br> If you decide to SKIP a question, you'll get 0 points, and your brain will get a BLOCKED connection. <br>And every time you decide to try a question again if you get it wrong, you get 1 extra point!
-<br>Good luck, and have fun!</p>
-	<!-- <a class="btn btn-default" href="#gamequestions" role="button" id="startGameBtn">Start Game!</a> -->
+	<div id="instructions">
+		<p>Instructions:</p>
+	<ul><li>BRAINGYM is a quiz game, but if you get an answer right or wrong, nothing happens, and you can try a question again an unlimited number of times!</li> <li>When you finish with a question, if you choose to move on to a question of the SAME LEVEL, you'll get 1 brain point, and your brain will get a REGULAR connection. If you choose to move on to a question of a HARDER LEVEL, you'll get 2 brain points, and your brain will get a SUPER connection. </li><li> If you decide to SKIP a question, you'll get 0 brain points, and your brain will get a BLOCKED connection. But every time you decide to try a question again if you get it wrong, you get 1 extra brain point! </li></ul>
+	<p id="align">Have fun, and remember to try your best. Your brain will get stronger for it!</p>
+	</div>
 	<button href="#gamequestions" id="startGameBtn">Start Game!</button>
 </div>
 
@@ -114,17 +117,17 @@
 		<!-- game question will go here -->
 		<img id="questionpic" class="img-responsive" src="./media/questionpics/q1.png" alt="">
 
-		<div>
+		<div class="feedback">
 			<div class="correct hide">
 				<img src="./media/correct.png" alt="">
-				<p>That's the correct answer!</p>
+				<span>That's the correct answer!</span>
 			</div>
 			<div class="incorrect hide">
 				<img src="./media/incorrect.png" alt="">
-				<p>That's not the correct answer.</p>
+				<span>That's not the correct answer.</span>
 			</div>
 		</div>
-		
+
 		<div class="questionhelp">
 
 		</div>
@@ -153,6 +156,6 @@
 </section>
 
 
-	<script src="main.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 </html>
